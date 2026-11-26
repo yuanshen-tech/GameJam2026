@@ -55,6 +55,8 @@ public class AllChange : MonoBehaviour
     //每次序号改变时调用,不同的音乐只需传入两个字符串，改变同步加载内容即可，可在选择往前走或回到原点时调用
     public void ChangeManager(int index,string bk,string player_)
     {
+        Debug.Log(bk);
+        Debug.Log(player_);
         Debug.Log(index);
         WinorFail.Instance.controlspeed=true;
         if(index==9)
@@ -70,7 +72,7 @@ public class AllChange : MonoBehaviour
                 //失败界面
             }
         }
-        if(index!=3&&index!=9)
+        if(index!=9)
         {
             born_y -= 2;
             audioSource_bk.clip = Resources.Load<AudioClip>(bk);

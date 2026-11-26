@@ -34,13 +34,12 @@ public class LightAbout : MonoBehaviour
             if (!isOpen)
             {
                 audioSource_light.Play();
-                audioSource_bk.volume = audioSource_bk.volume / 2;
                 isOpen=true;
             }
         }
         else
         {
-            if(Vector3.Distance(player.transform.position,transform.position)<r)
+            if(Vector3.Distance(player.transform.position,transform.position)<r+10)
             {
                 audioSource_light.Pause();
                 isOpen = false;
