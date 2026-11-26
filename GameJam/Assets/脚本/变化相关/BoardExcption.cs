@@ -20,6 +20,7 @@ public class BoardExcption : ExcptionMgr<BoardExcption>
         if(index==5)
         {
             base.Exception(index);
+            
         }
     }
 }

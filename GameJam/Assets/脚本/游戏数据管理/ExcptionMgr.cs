@@ -22,6 +22,7 @@ public class ExcptionMgr<T>:MonoBehaviour where T:ExcptionMgr<T>
     public virtual void Exception(int index)
     {
         WinorFail.Instance.isException = true;
+        gameObject.SetActive(false);
         //if(index==)
     }
 }
