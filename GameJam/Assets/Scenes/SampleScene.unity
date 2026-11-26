@@ -287,7 +287,6 @@ GameObject:
   - component: {fileID: 1309346542}
   - component: {fileID: 1309346541}
   - component: {fileID: 1309346540}
-  - component: {fileID: 1309346544}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -381,18 +380,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1309346544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309346539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09987b55e70d2d14e88d7d2fc96f151b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1348813747
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +486,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 416764674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1539425900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3120d654d1d7f047b24061b432adc36, type: 3}
+--- !u!1001 &1539425901
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8cb7ba1ac78d8a4faef12a592b58dd4, type: 3}
+--- !u!1001 &1539425902
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 896407657853037475, guid: eb881d0ea43806c4f8a9d90a3bb9051a, type: 3}
+      propertyPath: fail
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096125467942875722, guid: eb881d0ea43806c4f8a9d90a3bb9051a, type: 3}
+      propertyPath: success
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb881d0ea43806c4f8a9d90a3bb9051a, type: 3}
 --- !u!1 &1989614391
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,32 +627,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &1539425900
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c3120d654d1d7f047b24061b432adc36, type: 3}
---- !u!1001 &1539425901
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d8cb7ba1ac78d8a4faef12a592b58dd4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -629,3 +637,4 @@ SceneRoots:
   - {fileID: 416764674}
   - {fileID: 1539425900}
   - {fileID: 1539425901}
+  - {fileID: 1539425902}
