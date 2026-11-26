@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3df10b5edef7e4086a7e680e7de10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayScenePath: Assets/Scenes/SampleScene.unity
+  gameplayScenePath: Assets/Scenes/Subtitle.unity
   titlePanel: {fileID: 1076895596}
   titleBackdrop: {fileID: 59016001}
   instructionsPanel: {fileID: 721125277}
