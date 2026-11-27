@@ -11,6 +11,7 @@ public sealed class CorridorIntroController : MonoBehaviour
     [SerializeField] private GameObject overlay;
     [SerializeField] private UnityEngine.UI.Text narrationLabel;
     [SerializeField] private Button skipButton;
+    [SerializeField] private AudioClip skipClick;
     [SerializeField] private AudioSource typewriter;
     [SerializeField, TextArea(3, 8)] private string narration;
 
@@ -88,6 +89,13 @@ public sealed class CorridorIntroController : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(2.1f);
+        Skip();
+    }
+
+    public void SkipFromButton()
+    {
+        if (showing)
+            UiClickAudio.Play(skipClick);
         Skip();
     }
 

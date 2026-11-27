@@ -272,6 +272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 2018033828266254704}
+  openClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
+  resumeClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
+  quitClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
   continueButton: {fileID: 1101044977918946230}
 --- !u!1 &4879360453756614289
 GameObject:

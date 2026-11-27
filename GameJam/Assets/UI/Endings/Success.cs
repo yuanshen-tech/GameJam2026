@@ -15,6 +15,7 @@ public abstract class EndingTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject screen;
     [SerializeField] private Label body;
+    [SerializeField] private AudioClip quitClick;
     [SerializeField] private Button quitButton;
     [SerializeField] private AudioSource speaker;
     [SerializeField] private AudioClip cue;
@@ -82,11 +83,7 @@ public abstract class EndingTrigger : MonoBehaviour
 
     private void Quit()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        UiClickAudio.QuitAfterClick(quitClick);
     }
 
     protected void OnDisable()

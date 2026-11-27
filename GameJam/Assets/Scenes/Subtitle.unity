@@ -522,11 +522,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 896407657853037475, guid: eb881d0ea43806c4f8a9d90a3bb9051a, type: 3}
       propertyPath: fail
-      value: 6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1096125467942875722, guid: eb881d0ea43806c4f8a9d90a3bb9051a, type: 3}
       propertyPath: success
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

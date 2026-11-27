@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public sealed class PauseMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private AudioClip openClick;
+    [SerializeField] private AudioClip resumeClick;
+    [SerializeField] private AudioClip quitClick;
     [SerializeField] private Button continueButton;
 
     private bool isPaused;
@@ -34,6 +37,7 @@ public sealed class PauseMenuController : MonoBehaviour
         previousCursorVisibility = Cursor.visible;
         previousSelection = EventSystem.current == null ? null : EventSystem.current.currentSelectedGameObject;
         isPaused = true;
+        UiClickAudio.Play(openClick);
 
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
@@ -43,6 +47,13 @@ public sealed class PauseMenuController : MonoBehaviour
     }
 
     public void Resume()
+    {
+        if (isPaused)
+            UiClickAudio.Play(resumeClick);
+        RestoreGameplay();
+    }
+
+    private void RestoreGameplay()
     {
         if (!isPaused)
             return;
@@ -58,15 +69,11 @@ public sealed class PauseMenuController : MonoBehaviour
 
     public void Quit()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        UiClickAudio.QuitAfterClick(quitClick);
     }
 
     private void OnDisable()
     {
-        Resume();
+        RestoreGameplay();
     }
 }
