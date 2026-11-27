@@ -10,6 +10,7 @@ public class ExcptionMgr<T>:MonoBehaviour where T:ExcptionMgr<T>
     /// <param name="index"></param>
     private static ExcptionMgr<T> instance;
     public static ExcptionMgr<T> Instance=>instance;
+    public Coroutine oroutine;
     private void Awake()
     {
         instance = this as T;

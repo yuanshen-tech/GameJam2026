@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectExcption : ExcptionMgr<ObjectExcption>
 {
+    public GameObject zhishi_excption;
+    public GameObject zhishi_normal;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class ObjectExcption : ExcptionMgr<ObjectExcption>
         if(index==8)
         {
             base.Exception(index);
+            zhishi_excption.SetActive(false);
+            zhishi_normal.SetActive(true);
         }
     }
 }

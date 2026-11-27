@@ -12,6 +12,7 @@ public class PlayerMoveGameobject : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        //Cursor.lockState=CursorLockMode.Locked;
         transform.rotation = Quaternion.identity;
     }
 

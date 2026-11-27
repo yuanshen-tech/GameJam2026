@@ -22,8 +22,8 @@ public class WinorFail : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        center=new Vector3(448,42,98);
-        scae = new Vector3(70, 45, 50);
+        center=new Vector3(276,0,127);
+        scae = new Vector3(10, 5, 5);
         AllChange.Instance.ChangeManager(index++, AllChange.Instance.paths_player.Dequeue());
     }
 

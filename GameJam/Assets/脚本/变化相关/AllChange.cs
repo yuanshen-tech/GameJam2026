@@ -58,7 +58,7 @@ public class AllChange : MonoBehaviour
         }
         if(index!=9)
         {
-            born_y--;
+            born_y-=0.3f;
             AudioClip playerClip = Resources.Load<AudioClip>(player_);
             if (playerClip != null)
             {
@@ -73,13 +73,13 @@ public class AllChange : MonoBehaviour
         //调用异常物体的方法
         switch (index)
         {
-            case 0:
+            case 1:
                 TimeException.Instance.Exception(index);
                 break;
-            case 1:
+            case 2:
                 DoorException.Instance.Exception(index);
                 break;
-            case 2:
+            case 3:
                 XiaoFangExcption.Instance.Exception(index);
                 break;
             case 4:
@@ -93,6 +93,7 @@ public class AllChange : MonoBehaviour
                 break;
             case 7:
                 ZhiShiExcptioin.Instance.Exception(index);
+                LightExcption.Instance.Exception(index);
                 break;
             case 8:
                 ObjectExcption.Instance.Exception(index);
@@ -100,6 +101,7 @@ public class AllChange : MonoBehaviour
         }
         player.transform.position=new Vector3(born_x,born_y,born_z);
         player.transform.rotation=Quaternion.identity;
+        player.transform.GetChild(0).gameObject.transform.rotation=Quaternion.identity;
         //立即同步物理世界，避免本帧/下一帧的 OverlapBox 还认为玩家在判定区里
         Physics.SyncTransforms();
     }

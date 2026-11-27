@@ -6,6 +6,7 @@ public class XiaoFangExcption : ExcptionMgr<XiaoFangExcption>
 {
     // Start is called before the first frame update
     public AudioSource audio_door;
+    public GameObject xiaofang;
     void Start()
     {
         
@@ -18,11 +19,11 @@ public class XiaoFangExcption : ExcptionMgr<XiaoFangExcption>
     }
     public override void Exception(int index)
     {
-        if(index==2)
+        if(index==3)
         {
             base.Exception(index);
             audio_door.Pause();
-           
+            xiaofang.SetActive(false);
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimeException : ExcptionMgr<TimeException>
 {
+    public GameObject shizhong;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,10 @@ public class TimeException : ExcptionMgr<TimeException>
     }
     public override void Exception(int index)
     {
-        if(index==0)
+        if(index==1)
         {
             base.Exception(index);
-            
+            shizhong.transform.rotation=Quaternion.AngleAxis(180,Vector3.right)*shizhong.transform.rotation;
         }
     }
 }

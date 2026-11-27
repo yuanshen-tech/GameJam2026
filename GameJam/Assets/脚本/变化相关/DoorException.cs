@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorException :ExcptionMgr<DoorException>
 {
+    public GameObject shizhong;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,10 @@ public class DoorException :ExcptionMgr<DoorException>
     }
     public override void Exception(int index)
     {
-       if(index == 1)
+       if(index == 2)
        {
             base.Exception(index);
-            
+            shizhong.transform.rotation=Quaternion.AngleAxis(-180, Vector3.right)*shizhong.transform.rotation;
        }
     }
 }
