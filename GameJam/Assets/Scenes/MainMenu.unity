@@ -609,6 +609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3df10b5edef7e4086a7e680e7de10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
+  backClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
+  enterClick: {fileID: 8300000, guid: a60a90770a035830b462cd28366f81c4, type: 3}
+  quitClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
   gameplayScenePath: Assets/Scenes/Subtitle.unity
   titlePanel: {fileID: 1076895596}
   titleBackdrop: {fileID: 59016001}
@@ -1377,7 +1381,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 423101331}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: ShowTitle
+        m_MethodName: ReturnToTitle
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

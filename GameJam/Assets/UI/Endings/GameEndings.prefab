@@ -603,6 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screen: {fileID: 5372663706845568532}
   body: {fileID: 5015859404098605063}
+  quitClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
   quitButton: {fileID: 4123712299280500855}
   speaker: {fileID: 7393687723047855744}
   cue: {fileID: 8300000, guid: 3b1a9511db5f022418404d12e3b4621d, type: 3}
@@ -622,6 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screen: {fileID: 5372663706845568532}
   body: {fileID: 5015859404098605063}
+  quitClick: {fileID: 8300000, guid: 385b23c3b2b558d382b5fff95576e33e, type: 3}
   quitButton: {fileID: 4123712299280500855}
   speaker: {fileID: 7393687723047855744}
   cue: {fileID: 8300000, guid: e58c7844f42d7c346b272650f659b7e0, type: 3}

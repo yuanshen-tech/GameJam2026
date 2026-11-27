@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public sealed class MainMenuController : MonoBehaviour
 {
+    [SerializeField] private AudioClip startClick;
+    [SerializeField] private AudioClip backClick;
+    [SerializeField] private AudioClip enterClick;
+    [SerializeField] private AudioClip quitClick;
     [SerializeField] private string gameplayScenePath;
     [SerializeField] private GameObject titlePanel;
     [SerializeField] private GameObject titleBackdrop;
@@ -22,7 +26,13 @@ public sealed class MainMenuController : MonoBehaviour
     private void Update()
     {
         if (instructionsPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-            ShowTitle();
+            ReturnToTitle();
+    }
+
+    public void ReturnToTitle()
+    {
+        UiClickAudio.Play(backClick);
+        ShowTitle();
     }
 
     public void ShowTitle()
@@ -35,6 +45,7 @@ public sealed class MainMenuController : MonoBehaviour
 
     public void ShowInstructions()
     {
+        UiClickAudio.Play(startClick);
         titlePanel.SetActive(false);
         titleBackdrop.SetActive(false);
         instructionsPanel.SetActive(true);
@@ -44,6 +55,7 @@ public sealed class MainMenuController : MonoBehaviour
 
     public void EnterGame()
     {
+        UiClickAudio.Play(enterClick);
         if (!CanLoadGameplayScene())
         {
             loadError.SetActive(true);
@@ -75,6 +87,6 @@ public sealed class MainMenuController : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        UiClickAudio.QuitAfterClick(quitClick);
     }
 }
