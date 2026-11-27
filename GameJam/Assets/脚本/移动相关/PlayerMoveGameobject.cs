@@ -65,9 +65,5 @@ public class PlayerMoveGameobject : MonoBehaviour
         {
             Cursor.visible = !Cursor.visible;
         }
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            AllChange.Instance.ChangeManager(0, AllChange.Instance.paths_bk.Dequeue(), AllChange.Instance.paths_player.Dequeue());
-        }
     }
 }

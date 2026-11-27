@@ -44,7 +44,7 @@ public sealed class MainMenuController : MonoBehaviour
 
     public void EnterGame()
     {
-        if (!Application.CanStreamedLevelBeLoaded(gameplayScenePath))
+        if (!CanLoadGameplayScene())
         {
             loadError.SetActive(true);
             return;
@@ -53,6 +53,24 @@ public sealed class MainMenuController : MonoBehaviour
         CorridorIntroController.RequestForScene(gameplayScenePath);
         SceneManager.LoadSceneAsync(gameplayScenePath, LoadSceneMode.Single);
         enterButton.interactable = false;
+    }
+
+    // Application.CanStreamedLevelBeLoaded 在编辑器里对任何场景都返回 false，
+    // 改为直接对照 Build Settings 里的场景列表（编辑器与打包后行为一致）。
+    private bool CanLoadGameplayScene()
+    {
+        if (string.IsNullOrEmpty(gameplayScenePath))
+            return false;
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+            if (path == gameplayScenePath)
+                return true;
+            if (System.IO.Path.GetFileNameWithoutExtension(path) == gameplayScenePath)
+                return true;
+        }
+        return false;
     }
 
     public void Quit()

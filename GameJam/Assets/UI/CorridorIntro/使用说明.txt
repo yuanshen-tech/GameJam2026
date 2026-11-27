@@ -1,0 +1,30 @@
+走廊开场字幕 · 使用说明
+
+制作版本：Unity 2022.3.62f3c1。使用 Unity UI（uGUI）与 Audio 模块。
+
+快速预览
+双击 .unitypackage 并导入全部资源。在 Project 窗口打开
+Assets/UI/CorridorIntro/Demo/CorridorIntroPreview.unity，按 Play。
+黑底字幕会逐字显示并播放打字音效；点击右上角快进图标可以跳过。
+预览场景播放完会回到空的灰色画面。
+
+接入游戏
+将 Assets/UI/CorridorIntro/CorridorIntro.prefab 放进目标游戏场景。
+每个场景只放一份。当前游戏的 Subtitle 场景已经有一份。
+场景需要有 Audio Listener，以及与项目输入方式匹配的 EventSystem 和 UI 输入模块。
+预览场景使用旧输入模块，可在 Active Input Handling 设为 Input Manager 或 Both 的项目中点击快进。
+
+在“进入走廊”的按钮回调中，先登记目标场景，再加载：
+
+    string path = "Assets/Scenes/Subtitle.unity";
+    CorridorIntroController.RequestForScene(path);
+    UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(path);
+
+目标场景要加入 Build Settings，路径要与项目中实际路径一致。
+当前游戏的 MainMenu 已有这段逻辑。若要直接运行某个场景时也播放，
+可参考预览场景里的 IntroPackDemoStart，它在 Awake 中登记当前场景。
+
+在 Inspector 的 Narration 字段编辑文案。内置字体包含原文所用字形，
+如替换文案后出现缺字，请给 Narration Text 指定包含相应字形的字体。
+包内附 PauseMenuController.cs，供字幕控制器在播放期间临时关闭游戏暂停菜单。
+导入已有同名脚本的其他工程时请先核对版本，避免同名类重复定义。

@@ -15,14 +15,10 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            isRotate = true;
-        }
         if (transform.localRotation.x < 45 && transform.localRotation.x > -45)
         {
-            if(isRotate)
-                transform.Rotate(Vector3.right, Time.deltaTime * rotatespeed * -Input.GetAxis("Mouse Y"));
+             transform.Rotate(Vector3.right, Time.deltaTime * rotatespeed * -Input.GetAxis("Mouse Y"));
         }
+       
     }
 }

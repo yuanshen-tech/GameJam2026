@@ -18,8 +18,9 @@ public class DoorException :ExcptionMgr<DoorException>
     public override void Exception(int index)
     {
        if(index == 1)
-        {
+       {
             base.Exception(index);
-        }
+            
+       }
     }
 }

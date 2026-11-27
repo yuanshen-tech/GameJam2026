@@ -18,8 +18,8 @@ public class WindowExcption : ExcptionMgr<WindowExcption>
     public override void Exception(int index)
     {
        if(index==4)
-        {
-            base.Exception(index);
-        }
+       {
+           base.Exception(index);
+       }
     }
 }

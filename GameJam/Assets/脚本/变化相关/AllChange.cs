@@ -5,13 +5,11 @@ using UnityEngine;
 public class AllChange : MonoBehaviour
 {
     public Queue<string> paths_player = new Queue<string>();
-    public Queue<string> paths_bk = new Queue<string>();
     public GameObject player;
     public float born_x=80;
     public float born_z=58;
-    public float born_y=60;
-    //¿ÉÓÃÍ¬²½¼ÓÔØ
-    public AudioSource audioSource_bk;
+    public float born_y=58;
+    //å¯ç”¨åŒæ­¥åŠ è½½
     public AudioSource audioSource_player;
     private static AllChange instance;
     public static AllChange Instance=>instance;
@@ -28,18 +26,6 @@ public class AllChange : MonoBehaviour
         paths_player.Enqueue("PlayerClip1");
         paths_player.Enqueue("PlayerClip2");
         paths_player.Enqueue("PlayerClip");
-
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip"); 
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip"); 
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip");
-        paths_bk.Enqueue("BkClip");
     }
     // Start is called before the first frame update
     void Start()
@@ -52,39 +38,39 @@ public class AllChange : MonoBehaviour
     {
         
     }
-    //Ã¿´ÎĞòºÅ¸Ä±äÊ±µ÷ÓÃ,²»Í¬µÄÒôÀÖÖ»Ğè´«ÈëÁ½¸ö×Ö·û´®£¬¸Ä±äÍ¬²½¼ÓÔØÄÚÈİ¼´¿É£¬¿ÉÔÚÑ¡ÔñÍùÇ°×ß»ò»Øµ½Ô­µãÊ±µ÷ÓÃ
-    public void ChangeManager(int index,string bk,string player_)
+    //æ¯æ¬¡åºå·æ”¹å˜æ—¶è°ƒç”¨,ä¸åŒçš„éŸ³ä¹åªéœ€ä¼ å…¥ä¸¤ä¸ªå­—ç¬¦ä¸²ï¼Œæ”¹å˜åŒæ­¥åŠ è½½å†…å®¹å³å¯ï¼Œå¯åœ¨é€‰æ‹©å¾€å‰èµ°æˆ–å›åˆ°åŸç‚¹æ—¶è°ƒç”¨
+    public void ChangeManager(int index,string player_)
     {
-        Debug.Log(bk);
         Debug.Log(player_);
         Debug.Log(index);
-        WinorFail.Instance.controlspeed=true;
         if(index==9)
         {
             if(WinorFail.Instance.winnumber>WinorFail.Instance.failnumber)
             {
-                //Ê¤Àû½çÃæ
-                Debug.Log(WinorFail.Instance.winnumber);
-                Debug.Log(WinorFail.Instance.failnumber);
+                //èƒœåˆ©ç•Œé¢
+                Success.Instance.ShowEnding();
             }
             else
             {
-                //Ê§°Ü½çÃæ
+                //å¤±è´¥ç•Œé¢
+                Fail.Instance.ShowEnding();
             }
         }
         if(index!=9)
         {
-            born_y -= 2;
-            audioSource_bk.clip = Resources.Load<AudioClip>(bk);
-            audioSource_bk.Play();
-            audioSource_player.clip = Resources.Load<AudioClip>(player_);
-            audioSource_player.Play();
+            born_y--;
+            AudioClip playerClip = Resources.Load<AudioClip>(player_);
+            if (playerClip != null)
+            {
+                audioSource_player.clip = playerClip;
+                audioSource_player.Play();
+            }
         }
         if(index==3)
         {
             WinorFail.Instance.isException = false;
         }
-        //µ÷ÓÃÒì³£ÎïÌåµÄ·½·¨
+        //è°ƒç”¨å¼‚å¸¸ç‰©ä½“çš„æ–¹æ³•
         switch (index)
         {
             case 0:
@@ -114,6 +100,7 @@ public class AllChange : MonoBehaviour
         }
         player.transform.position=new Vector3(born_x,born_y,born_z);
         player.transform.rotation=Quaternion.identity;
-        WinorFail.Instance.controlspeed = false;
+        //ç«‹å³åŒæ­¥ç‰©ç†ä¸–ç•Œï¼Œé¿å…æœ¬å¸§/ä¸‹ä¸€å¸§çš„ OverlapBox è¿˜è®¤ä¸ºç©å®¶åœ¨åˆ¤å®šåŒºé‡Œ
+        Physics.SyncTransforms();
     }
 }

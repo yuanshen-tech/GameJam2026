@@ -20,7 +20,7 @@ public class TimeException : ExcptionMgr<TimeException>
         if(index==0)
         {
             base.Exception(index);
-
+            
         }
     }
 }

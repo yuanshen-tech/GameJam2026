@@ -4,15 +4,21 @@ using UnityEngine.UI;
 using Label = UnityEngine.UI.Text;
 
 [DefaultExecutionOrder(200)]
-public sealed class Success : EndingTrigger
+public sealed class Success : EndingTrigger<Success>
 {
     public int success = 0;
     protected override bool Reached => success >= 6;
 }
 
 // The two counters share one canvas. Its active state locks in the first ending.
-public abstract class EndingTrigger : MonoBehaviour
+public abstract class EndingTrigger<T> : MonoBehaviour where T : EndingTrigger<T>
 {
+    private static EndingTrigger<T> instance;
+    public static EndingTrigger<T> Instance=> instance;
+    private void Awake()
+    {
+        instance = this as T;
+    }
     [SerializeField] private GameObject screen;
     [SerializeField] private Label body;
     [SerializeField] private Button quitButton;

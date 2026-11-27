@@ -5,6 +5,7 @@ using UnityEngine;
 public class XiaoFangExcption : ExcptionMgr<XiaoFangExcption>
 {
     // Start is called before the first frame update
+    public AudioSource audio_door;
     void Start()
     {
         
@@ -20,6 +21,8 @@ public class XiaoFangExcption : ExcptionMgr<XiaoFangExcption>
         if(index==2)
         {
             base.Exception(index);
+            audio_door.Pause();
+           
         }
     }
 }
